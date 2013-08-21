@@ -10,46 +10,28 @@ jQuery(document).ready(function($) {
 		$('.slide').eq(nextImage).fadeIn().addClass('currentImage');
 		$('.active').removeClass('active');
 		$('.thumb').eq(nextImage).addClass('active');
-
 	});
-
 	$('.next').click(function (e) {
 		//find out which image is currently being shown. get its index
 		var current = $('.currentImage').index();
 		var nextImage = current + 1;
-
-		if(current >= $('.slide').length )
-			current = 0;
-
-
+		if(nextImage >= $('.slide').length)
+			nextImage = 0;
+		
 		$('.slide').eq(current).fadeOut().removeClass('currentImage');
 		$('.slide').eq(nextImage).fadeIn().addClass('currentImage');
-
 		$('.thumb').eq(current).removeClass('active');
 		$('.thumb').eq(nextImage).addClass('active');
-
-
-		//console.log( $('.currentImage').index() );
 	});
-
 	$('.previous').click(function (e) {
 		//find out which image is currently being shown. get its index
 		var current = $('.currentImage').index();
 		var nextImage = current - 1;
-
-		if(current < 0 )
-			current = $('.slide').length -1;
-		
+		if(nextImage < 0 )
+			nextImage = $('.slide').length -1;
 		$('.slide').eq(current).fadeOut().removeClass('currentImage');
 		$('.slide').eq(nextImage).fadeIn().addClass('currentImage');
-		
 		$('.thumb').eq(current).removeClass('active');
 		$('.thumb').eq(nextImage).addClass('active');
-
-		//console.log( $('.currentImage').index() );
 	});
-
-
-
-
 });
